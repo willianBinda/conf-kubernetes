@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-ui-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - pathType: Prefix
+            path: / # When url start with "/" redirect to service "ui"
+            backend:
+              service:
+                name: api-ui-svc
+                port:
+                  number: 3000

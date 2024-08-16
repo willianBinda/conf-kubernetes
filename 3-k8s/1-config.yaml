@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: microsservices-config
+data:
+  postgres_host: localhost
+  postgres_port: "5432" # number-->string
+  postgres_dbname: db_name
+
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: microsservices-secrets
+type: Opaque
+data:
+  postgres_username: cG9zdGdyZXM= # secret must be encrypted
+  postgres_password: cG9zdGdyZXM= # secret must be encrypted
